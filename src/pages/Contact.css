@@ -1,0 +1,377 @@
+:root {
+  --contact-primary: #c40f34;
+  --contact-primary-dark: #a30b2c;
+  --contact-bg: #ffffff;
+  --contact-surface: #f9fafb;
+  --contact-border: #e2e8f0;
+  --contact-text-main: #0f172a;
+  --contact-text-muted: #64748b;
+  --contact-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.page-contact {
+  padding-top: 0;
+  overflow-x: hidden;
+  background: var(--contact-bg);
+  font-family: 'Outfit', sans-serif;
+}
+
+/* 1. Cinematic Hero */
+.contact-hero {
+  height: 65vh;
+  min-height: 520px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+
+.contact-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.1);
+  animation: kenBurns 20s linear infinite alternate;
+  z-index: 1;
+}
+
+.contact-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(16, 17, 13, 0.4) 0%, rgba(16, 17, 13, 0.95) 100%);
+  z-index: 2;
+}
+
+.contact-hero .container {
+  position: relative;
+  z-index: 5;
+}
+
+.contact-hero h1 {
+  font-size: clamp(3.5rem, 10vw, 8rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  margin-bottom: 24px;
+  line-height: 1;
+  color: #ffffff;
+  animation: heroTextReveal 1.2s var(--contact-ease);
+}
+
+.contact-hero p {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 800px;
+  margin: 0 auto;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  animation: fadeUp 1.2s var(--contact-ease) 0.4s both;
+}
+
+/* 2. Layered Content Grid */
+.contact-body {
+  padding: 140px 0;
+  margin-top: -120px;
+  position: relative;
+  z-index: 10;
+  background: #fff;
+}
+
+.contact-body::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(196, 15, 52, 0.05) 0%, transparent 70%);
+  z-index: -1;
+  border-radius: 50%;
+  animation: floatOrb 15s ease-in-out infinite alternate;
+}
+
+.contact-body::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(16, 17, 13, 0.03) 0%, transparent 70%);
+  z-index: -1;
+  border-radius: 50%;
+  animation: floatOrb 12s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatOrb {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-50px) scale(1.1); }
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* Info Section */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.contact-info h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  color: var(--contact-text-main);
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+.info-block {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 24px;
+  border: 1px solid var(--contact-border);
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  transition: all 0.5s var(--contact-ease);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.info-block:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--contact-primary);
+  box-shadow: 0 25px 50px -12px rgba(196, 15, 52, 0.12);
+}
+
+.info-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent 50%, rgba(196, 15, 52, 0.02) 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.info-block:hover {
+  transform: scale(1.02) translateX(15px);
+  border-color: rgba(196, 15, 52, 0.4);
+  box-shadow: 0 40px 80px rgba(196, 15, 52, 0.1);
+}
+
+.info-block:hover::before {
+  opacity: 1;
+}
+
+.info-icon {
+  font-size: 2rem;
+  width: 72px;
+  height: 72px;
+  background: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  transition: all 0.4s ease;
+}
+
+.info-block:hover .info-icon {
+  background: var(--contact-primary);
+  color: #fff;
+  transform: rotate(-10deg) scale(1.1);
+}
+
+.info-content h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--contact-primary);
+  margin-bottom: 8px;
+  font-weight: 800;
+}
+
+.info-content p {
+  color: #10110d;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 4px 0;
+}
+
+/* High-Impact Form Wrap */
+.contact-form-wrap {
+  background: #ffffff;
+  padding: 64px;
+  border-radius: 40px;
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--contact-border);
+  position: sticky;
+  top: 100px;
+}
+
+.form-header {
+  margin-bottom: 40px;
+}
+
+.form-header h3 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--contact-text-main);
+  margin-bottom: 8px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--contact-text-muted);
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  pointer-events: none;
+  transition: all 0.25s var(--contact-ease);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 24px 20px 12px;
+  border-radius: 16px;
+  border: 1px solid var(--contact-border);
+  background: var(--contact-surface);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--contact-text-main);
+  transition: all 0.3s var(--contact-ease);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--contact-primary);
+  background: #ffffff;
+  box-shadow: 0 10px 40px rgba(196, 15, 52, 0.08);
+  outline: none;
+}
+
+/* Label Movement */
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:focus + label,
+.form-group textarea:not(:placeholder-shown) + label {
+  top: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--contact-primary);
+  opacity: 1;
+}
+
+.submit-btn {
+  width: 100%;
+  min-height: 76px;
+  border-radius: 24px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #c40f34 0%, #8b0a23 100%);
+  color: #fff;
+  box-shadow: 0 20px 40px rgba(196, 15, 52, 0.3);
+  margin-top: 20px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(196, 15, 52, 0.4);
+}
+
+/* 3. Immersive Map Section */
+.contact-map {
+  padding: 0 60px 120px;
+}
+
+.map-container {
+  border-radius: 56px;
+  overflow: hidden;
+  box-shadow: 0 50px 100px rgba(0,0,0,0.15);
+  transform: translateY(0);
+  transition: transform 1s var(--contact-ease);
+}
+
+.map-container:hover {
+  transform: scale(1.01);
+}
+
+/* Animation Keyframes */
+@keyframes kenBurns {
+  from { transform: scale(1); }
+  to { transform: scale(1.15); }
+}
+
+@keyframes heroTextReveal {
+  0% { transform: translateY(40px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeUp {
+  0% { transform: translateY(40px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Base Reveal Logic */
+.reveal-on-scroll {
+  opacity: 1;
+}
+
+.reveal-on-scroll.reveal-init {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition: all 1s var(--contact-ease);
+}
+
+.reveal-on-scroll.reveal-init.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Responsive Overrides */
+@media (max-width: 1200px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 60px; }
+  .contact-form-wrap { position: static; padding: 50px; }
+}
+
+@media (max-width: 600px) {
+  .contact-hero { height: 50vh; }
+  .contact-hero h1 { font-size: 3.5rem; }
+  .contact-body { padding: 80px 0; margin-top: -60px; }
+  .contact-form-wrap { padding: 30px; border-radius: 32px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .form-group input, .form-group textarea { padding: 25px 20px 10px; }
+  .contact-map { padding: 0 20px 60px; }
+  .info-block { padding: 30px; }
+}

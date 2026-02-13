@@ -1,0 +1,79 @@
+/* ========== Premium Visual Design System ========== */
+
+:root {
+  /* Brand Identity */
+  --color-ruby: #c40f34;
+  --color-ruby-dark: #8b0a24;
+  --color-ruby-alpha: rgba(196, 15, 52, 0.1);
+  --color-ink: #0a0a0a;
+  --color-slate: #2d2d2d;
+  --color-ghost: #f8f9fa;
+  
+  /* Modern Tokens */
+  --font-heading: "Outfit", sans-serif;
+  --font-body: "Outfit", sans-serif;
+  --shadow-soft: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+  --shadow-pro: 0 20px 50px -10px rgba(0, 0, 0, 0.12);
+  --radius-pro: 16px;
+  --curve: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition: all 0.5s var(--curve);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: #fff;
+  color: var(--color-slate);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.text-ruby { color: var(--color-ruby); }
+
+/* Animation Classes */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s var(--curve), transform 1s var(--curve);
+}
+
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+
+/* Custom Scrollbar for Pro Feel */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ruby);
+}
