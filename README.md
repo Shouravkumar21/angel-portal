@@ -1,12 +1,29 @@
-Tech Stack
-React (functional components)
-React Router
-Plain CSS (no Bootstrap, Tailwind, or MUI)
-Vite
-Run locally
-npm install
-npm run dev
-Open http://localhost:5173.
+# Angel Portal – Frontend Assignment (Static UI)
 
-Responsive
-Layouts are responsive for desktop, tablet, and mobile (breakpoints at 1024px and 768px).
+## Tech Stack
+- React (Functional Components)
+- React Router
+- Plain CSS (No Bootstrap, Tailwind, or MUI)
+- Vite
+
+## Project Scope
+- Static UI only (No backend / No API integration)
+- Fully responsive design
+- Clean and structured codebase
+
+## Run Locally
+
+1. Install dependencies:
+   npm install
+
+2. Start development server:
+   npm run dev
+
+3. Open in browser:
+   http://localhost:5173
+
+## Responsive Design
+- Optimized for Desktop, Tablet, and Mobile
+- Breakpoints implemented at:
+  - 1024px
+  - 768px
